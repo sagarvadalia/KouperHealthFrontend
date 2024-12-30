@@ -2,6 +2,8 @@ import { Routes, Route, Navigate } from "react-router"
 import { Login } from "./auth/Login"
 import { Signup } from "./auth/Signup"
 import { useGetUser } from "./auth/hooks/useGetUser"
+import { PDFUpload } from "./fileUpload/PDFUpload"
+import { Home } from "./home"
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { data, isLoading, error } = useGetUser()
@@ -27,7 +29,13 @@ export const Router = () => {
       
       <Route path="/" element={
         <ProtectedRoute>
-          <div>Hello World</div>
+         <Home />
+        </ProtectedRoute>
+      } />
+
+    <Route path="/upload" element={
+        <ProtectedRoute>
+          <PDFUpload />
         </ProtectedRoute>
       } />
     </Routes>
