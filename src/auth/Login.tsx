@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import { useLoginRequest } from "./hooks/useLoginRequest"
 import { makeStyles } from "@mui/styles"
 
@@ -14,20 +15,23 @@ export const Login = () => {
 
   return <form name="loginForm" onSubmit={handleSubmit} >
     <h1>Login to the application</h1>
-    <div className = {classes.loginContainer}>
+    <div className = {classes.formContainer}>
 
     
     <input type="text" placeholder="Username" name="userName" />
     <button type="submit">Login</button>
     </div>
+    <Link  to="/signup">Sign up</Link>
   </form>
 }
 
 const useStyles = makeStyles(() => ({
-    loginContainer: {
+    formContainer: {
         display: 'flex',
         justifyContent: 'center',
-        gap: '10px'
+        gap: '10px',
+        paddingBottom: '10px'
     },
+   
 }))
 

@@ -1,3 +1,5 @@
+
+
 export const signUpApi = async (userName: string) => {
     const response = await fetch('/api/user/create', {
         headers: {
@@ -5,6 +7,7 @@ export const signUpApi = async (userName: string) => {
         },
         method: 'POST',
         body: JSON.stringify({ userName }),
+       
     })
-    return response
+    return response.json()
 }

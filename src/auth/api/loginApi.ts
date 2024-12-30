@@ -6,5 +6,5 @@ export const loginApi = async (userName: string) => {
         method: 'POST',
         body: JSON.stringify({ userName }),
     })
-    return response
+    return response.json()
 }

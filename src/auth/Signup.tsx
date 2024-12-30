@@ -1,5 +1,6 @@
 import { makeStyles } from "@mui/styles"
 import { useSignUpRequest } from "./hooks/useSignUpRequest"
+import { Link } from "react-router"
 
 // TODO: opting to use native forms instead of react-hook-form for now given the simplicity of this application
 export const Signup = () => {
@@ -20,6 +21,7 @@ export const Signup = () => {
     <input type="text" placeholder="Username" name="userName" />
     <button type="submit">Sign up</button>
     </div>
+    <Link  to="/login">Log in</Link>
   </form>
 }
 
@@ -27,7 +29,8 @@ const useStyles = makeStyles(() => ({
     loginContainer: {
         display: 'flex',
         justifyContent: 'center',
-        gap: '10px'
+        gap: '10px',
+        paddingBottom: '10px'
     },
 }))
 
