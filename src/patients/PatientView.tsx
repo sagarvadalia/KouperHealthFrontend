@@ -12,7 +12,7 @@ export const PatientView = () => {
 //   TODO: build out some valuable patient page
   return (
     <div>
-      <Typography variant="h6">Patient Page for{patient?.name}</Typography>
+      <Typography variant="h6">Patient Page for {patient?.name}</Typography>
       <Typography variant="body1">Epic ID: {patient?.epicId}</Typography>
       <Typography variant="body1">Phone Number: {patient?.phoneNumber}</Typography>
       <Typography variant="body1">Attending Physician: {patient?.attendingPhysician}</Typography>
