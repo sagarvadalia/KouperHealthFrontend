@@ -7,26 +7,11 @@ import {
 } from "material-react-table";
 import { useUpdatePatient } from "./hooks/useUpdatePatient";
 import { Link } from "react-router";
-
-export type Patient = {
-  _id: string;
-  name?: string;
-  epicId?: string;
-  phoneNumber?: string;
-  attendingPhysician?: string;
-  dischargeDate?: string;
-  primaryCareProvider?: string;
-  insurance?: string;
-  disposition?: string;
-  lastModifiedBy?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-};
+import { Patient } from "./api/getPatientApi";
 
 export const PatientTable = () => {
   const { data, isLoading, error } = useGetAllPatients();
   const { mutate: updatePatient } = useUpdatePatient();
-  //simple column definitions pointing to flat data
   const columns = useMemo<MRT_ColumnDef<Patient>[]>(
     () => [
       {
@@ -76,7 +61,6 @@ export const PatientTable = () => {
     enableEditing: true,
     enableSorting: true,
     enableTopToolbar: true,
-    enableDensityToggle: false,
     initialState: {
       density: "compact",
     },

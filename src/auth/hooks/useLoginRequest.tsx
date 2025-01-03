@@ -9,8 +9,11 @@ export const useLoginRequest = () => {
     mutationKey: ["login"],
     mutationFn: (userName: string) => loginApi(userName),
     onSuccess: async () => {
+      // invalidate the user query
       await queryClient.invalidateQueries({ queryKey: ["user"] });
+      // refetch the user query
       await queryClient.refetchQueries({ queryKey: ["user"] });
+      // navigate to the home page
       navigate("/");
     },
   });

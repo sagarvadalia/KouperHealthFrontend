@@ -1,13 +1,19 @@
-import { Box, Typography } from "@mui/material";
+import {   Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { generateUploadDropzone } from "@uploadthing/react";
 import "@uploadthing/react/styles.css";
-
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 export const PDFUpload = () => {
-  // const UploadButton = generateUploadButton()
-  const UploadDropzone = generateUploadDropzone({});
+  const classes = useStyles();
+  const navigate = useNavigate();
+  // using the uploadthing library to upload the pdf to the uploadthing server
+  const UploadDropzone = generateUploadDropzone();
+
+
 
   return (
-    <Box>
+    <div className={classes.container}>
       <Typography variant="h6">Upload PDF</Typography>
       <UploadDropzone
         endpoint="pdfUploader"
@@ -16,16 +22,26 @@ export const PDFUpload = () => {
         appearance={{
           allowedContent: { color: "#666666" },
         }}
-        onClientUploadComplete={(res) => {
-          console.log("Upload completed:", res);
+        onClientUploadComplete={() => {
+          toast.info("Upload completed");
+          navigate("/patients");
         }}
         onUploadError={(error) => {
-          console.error("Upload error:", error.message);
+          toast.error("Upload error: " + error.message);
         }}
         onUploadBegin={(fileName) => {
           console.log("Upload starting:", fileName);
         }}
       />
-    </Box>
+    </div>
   );
 };
+
+const useStyles = makeStyles(() => ({
+  container: {
+   marginTop: 20,
+  },
+}));
+
+
+

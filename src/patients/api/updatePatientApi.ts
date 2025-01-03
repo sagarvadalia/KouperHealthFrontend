@@ -1,7 +1,6 @@
-import { Patient } from "../PatientTable";
+import { Patient } from "./getPatientApi";
 
 export const updatePatient = async (patientData: Patient) => {
-  console.log(patientData);
   const response = await fetch(`/api/patient/${patientData._id}`, {
     method: "PUT",
     headers: {

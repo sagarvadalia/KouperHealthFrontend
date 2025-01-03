@@ -21,15 +21,16 @@
     "@tanstack/react-query-devtools": "^5.62.11",
     "@uploadthing/react": "^7.1.5",
     "material-react-table": "^3.1.0",
-    "prettier": "^3.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^5.0.0",
     "react-hook-form": "^7.54.2",
     "react-router": "^7.1.1",
+    "react-toastify": "^11.0.2",
     "uploadthing": "^7.4.4"
   },
   "devDependencies": {
+    "prettier": "^3.4.2",
     "@eslint/js": "^9.17.0",
     "@tanstack/eslint-plugin-query": "^5.62.9",
     "@testing-library/react": "^16.1.0",
